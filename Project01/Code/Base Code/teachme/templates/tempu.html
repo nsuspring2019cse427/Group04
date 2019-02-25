@@ -1,0 +1,195 @@
+{% block content %}
+   
+
+<form method="post" style="background-color:#f5f582;">{% csrf_token %}
+	<h2 class="sr-only">Login Form</h2>
+	<div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+	<div class="form-group"><input class="form-control" type="text" name="username" placeholder="username"></div>
+	<div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+   <button type="submit">Sign in</button>
+</form>
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+	<h2>Sign up</h2>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+				<button type="submit">Sign up</button>
+	</form>
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+   
+
+<form method="post" style="background-color:#f5f582;">{% csrf_token %}
+	<h2 class="text-center"><strong>Create</strong> an account (As Teacher)</h2>
+
+	
+	<div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+	<div class="form-group"><input type="text" name="username" autofocus required id="id_username" maxlength="150" /></div>
+	<div class="form-group"><input type="password" name="password1" required id="id_password1" /></div>
+	<div class="form-group"><input type="password" name="password2" required id="id_password2" /></div>
+   <button type="submit">Sign in</button>
+</form>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Set Profile</title>
+	</head>
+	<body>
+	<form   action="singupprocess"   method="get">{% csrf_token %}
+	<input type="text" name="Tname" placeholder="Enter full name" class="w3-input w3-border">
+	<br>
+
+	<input type="text" name="Tarea1" placeholder="Area1" class="w3-input w3-border">
+	<br>
+	
+	<input type="text" name="Tarea2" placeholder="Area2" class="w3-input w3-border">
+	<br>
+	<input type="text" name="Tcontact" placeholder="Contact" class="w3-input w3-border">
+	<br>
+
+	<input type="text" name="Tgender" placeholder="Gender" class="w3-input w3-border">
+	<br>
+	<input type="text" name="Tmedium" placeholder="Medium" class="w3-input w3-border">
+	<br>
+			
+	<button class="w3-btn w3-green">Signup</button>
+	</form>
+	</body>
+</html>
+
+
+action="signupprocess"
+
+
+
+
+
+
+
+
+
+
+
+
+
+def createPostProcess(request):
+
+
+
+	if request.method == 'POST':
+		# create a form instance and populate it with data from the request:
+		form = CreatePost(request.POST)
+		# check whether it's valid:
+		if form.is_valid():
+			StudentPost.objects.create(Spost=form.cleaned_data['Spost'],SofferdMoney=form.cleaned_data['SofferdMoney'],Subject=form.cleaned_data['Subject'])
+			 
+			return redirect('index')
+
+	# if a GET (or any other method) we'll create a blank form
+	else:
+		form = CreatePost()
+
+	return render(request, 'create_post.html', {'form': form})
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Set Profile</title>
+	</head>
+	<h1>Enter your details</h1>
+	<body>
+	<form  class="CreatePost" action="createPostProcess"   method="POST">{% csrf_token %}
+	<input type="text" name="Spost" placeholder="post" class="w3-input w3-border">
+	<br>
+
+	<input type="text" name="SofferdMoney" placeholder="SofferdMoney" class="w3-input w3-border">
+	<br>
+	
+	<input type="text" name="Ssubject" placeholder="Ssubject" class="w3-input w3-border">
+	<br>
+	
+	<br>
+			
+	<button class="w3-btn w3-green">Signup</button>
+	</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M:%S'], widget=forms.DateTimeInput(format='%d/%m/%Y %H:%M:%S'))
+
+
+
+
+
+
+
+
+
+
+def createPostProcess(request):
+
+
+
+if request.method == 'POST':
+	# create a form instance and populate it with data from the request:
+	form = CreatePost(request.POST)
+	# check whether it's valid:
+	if form.is_valid():
+		
+		form.save()
+		
+		 
+		return redirect('index')
+
+# if a GET (or any other method) we'll create a blank form
+else:
+	form = CreatePost()
+
+return render(request, 'create_post.html', {'form': form})
+
+
+
+
+
+
+students.objects.create(Sname=form.cleaned_data['Sname'],Ssubject=form.cleaned_data['Ssubject'],Sarea=form.cleaned_data['Sarea'],Smedium=form.cleaned_data['Smedium'],Sgender=form.cleaned_data['Sgender'],Scontact=form.cleaned_data['Scontact'])
+
+

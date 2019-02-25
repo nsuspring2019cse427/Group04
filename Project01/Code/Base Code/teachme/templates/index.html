@@ -1,0 +1,131 @@
+
+{% load static from staticfiles %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach-Me</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/readable/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}"> 
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="#" style="font-size:30PX;font-family:Aclonica, sans-serif;">Teach Me &nbsp;<i class="glyphicon glyphicon-pencil" style="font-size:40PX;"></i></a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" role="presentation"><a href="#" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Home</a></li>
+                    <li role="presentation"><a href="signin" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Teaher Sign In</a></li>
+                     <li role="presentation"><a href="student_signin" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Student Sign In</a></li>
+                    <li role="presentation"><a href="#" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">About</a></li>
+                    <li role="presentation"><a href="#" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Contact Us</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div id="promo" style="background-image:url(&quot;static/img/1e6ec765c17620c82a0db4c9a7abdab8.jpg&quot;);">
+        <div class="jumbotron" style="background-color:rgba(255,255,255,0.66);">
+            
+             <h1>শিক্ষক দিচ্ছি-নিচ্ছি!</h1>
+            <p>We are here to provide you a home tutor or If you are looking for a part time job then this is the place for you!</p>
+            <p><a class="btn btn-info btn-lg" role="button" href="signup" style="background-color:#f4ed7c;color:rgb(0,0,0);font-family:Allerta, sans-serif;">Sign Up</a></p>
+        </div>
+    </div>
+    <div>
+        <div class="header-blue" style="background-color:#ffffff;background-image:url(&quot;static/img/yellow-gradient-background-1461271359KTH.jpg&quot;);">
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-0">
+                        <h1 style="color:rgb(3,3,3);font-family:Raleway, sans-serif;">Get our Teach Me app</h1>
+                        <p style="color:rgba(9,9,9,0.8);font-family:Raleway, sans-serif;">We Have an Android App from where you can get all the benefits of our Website.</p><button class="btn btn-default btn-lg action-button" type="button" style="color:#f5f582;background-color:rgb(0,0,0);">Download</button></div>
+                    <div
+                        class="col-lg-5 col-lg-offset-0 col-md-5 col-md-offset-1 hidden-xs hidden-sm phone-holder">
+                        <div class="iphone-mockup"><img src="static/img/iphone.svg" class="device">
+                            <div class="screen"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="dark-section">
+        <div class="container site-section" id="why">
+            <h1>Why Choose Us </h1>
+            <div class="row">
+                <div class="col-md-4 item">
+                    <h2>Secure Process</h2>
+                    <p>Every Tutor here provides their Passport or NID card for verification.</p>
+                </div>
+                <div class="col-md-4 item">
+                    <h2>Reasonable Price</h2>
+                    <p>Both Party accept the Price we generate based on Subjects and Area .&nbsp; </p>
+                </div>
+                <div class="col-md-4 item">
+                    <h2>Quality Assurance &nbsp;</h2>
+                    <p>You can always see the qualification of a Teacher and his current student list.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container site-section" id="gallery">
+        <h1>Gallery </h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail"><a href="static/img/desert-1.jpg" target="_blank" data-lightbox="cakes"><img class="img-responsive" src="static/img/desert-1.jpg"></a></div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail"><a href="static/img/desert-2.jpg" target="_blank" data-lightbox="cakes"><img class="img-responsive" src="static/img/desert-2.jpg"></a></div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail"><a href="static/img/desert-3.jpg" target="_blank" data-lightbox="cakes"><img class="img-responsive" src="static/img/desert-3.jpg"></a></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 footer-navigation">
+                    <h3><a href="#">Teach Me</a></h3>
+                    <p class="links"><a href="#">Fast</a><strong> · </strong><a href="#">Pricing </a><strong> · </strong><a href="#">Secure</a><strong> </strong></p>
+                    <p class="company-name">Lubaba Bazlul © 182</p>
+                </div>
+                <div class="col-md-4 col-sm-6 footer-contacts">
+                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p><span class="new-line-span">CSE327.2</span>ECE, NSU</p>
+                    </div>
+                    <div><i class="fa fa-phone footer-contacts-icon"></i>
+                        <p class="footer-center-info email text-left">1611430042</p>
+                    </div>
+                    <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="#" target="_blank">support@company.com</a></p>
+                    </div>
+                </div>
+                <div class="clearfix visible-sm-block"></div>
+                <div class="col-md-4 footer-about">
+                    <h4>About the company</h4>
+                    <p>We are here to provide you awesome teacher and if you are looking for some extra money to meet the month's end need then here is the place to register!&nbsp;</p>
+                    <div class="social-links social-icons"><a href="#"><i class="fa fa-github"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox-plus-jquery.min.js"></script>
+</body>
+
+</html>

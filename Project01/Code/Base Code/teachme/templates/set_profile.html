@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Set Profile</title>
+	</head>
+	<h1>Enter your details</h1>
+	<body>
+	<form  class="NameForm" action="singupprocess"   method="POST">{% csrf_token %}
+	<input type="text" name="Tname" placeholder="Enter full name" class="w3-input w3-border">
+	<br>
+
+	<input type="text" name="Tarea1" placeholder="Area1" class="w3-input w3-border">
+	<br>
+	
+	<input type="text" name="Tarea2" placeholder="Area2" class="w3-input w3-border">
+	<br>
+	<input type="text" name="Tcontact" placeholder="Contact" class="w3-input w3-border">
+	<br>
+
+	<input type="text" name="Tgender" placeholder="Gender" class="w3-input w3-border">
+	<br>
+	<input type="text" name="Tmedium" placeholder="Medium" class="w3-input w3-border">
+	<br>
+			
+	<button class="w3-btn w3-green">Signup</button>
+	</form>
+	</body>
+</html>

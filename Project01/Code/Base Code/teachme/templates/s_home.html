@@ -1,0 +1,10 @@
+{% block content %}
+	{% if user.is_authenticated %}
+             <p class="display-4">Hello, {{ user.id}}</p>
+             <p class="display-4">Hello, {{ user.givenName }}</p>
+             <p class="display-4">Hello, {{ user.email}}</p>
+             <p class="display-4">Hello, {{ usrname }}</p>
+	{% else %}
+             <a class="lead" href="{% url 'login' %}">Log in</a>
+	{% endif %}
+{% endblock content %}
