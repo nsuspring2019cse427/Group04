@@ -94,5 +94,34 @@ class Project(models.Model):
 		total_expense_amount = int(total_expense_amount)
 
 		return self.budget - total_expense_amount
+
+
+
+
+
+
+    @property
+    def total_transactions(self):
+        expense_list = Expense.objects.filter(project=self)
+        return len(expense_list)
+
+    def get_absolute_url(self):
+        return '/' + self.slug
+
+
+class Category(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+
+
+class Expense(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='expenses')
+    title = models.CharField(max_length=100)
+    amount = models.DecimalField(max_digits=8, decimal_places=2)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ('-amount',)
+
 	
 	
