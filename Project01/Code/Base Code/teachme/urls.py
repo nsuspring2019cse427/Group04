@@ -14,7 +14,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
+	url(r'^$', views.project_list, name='list'),
 	url(r'^post/$',views.post),
 	url(r'^signin/$',views.signin),
 	url(r'^student_signin/$',views.student_signin),
@@ -32,9 +32,11 @@ urlpatterns = [
 	url(r'^profile/logout/$',views.logout),
 	url(r'^info/$',views.info),
 	url(r'^signin/s_login/$',views.s_login),
+	url(r'^student_signin/s_login/$',views.s_login),
 
 
 	url(r'^s_home/$',views.s_home),
+	url(r'^s_home/profile/$',views.back_profile),
 	url(r'^set_profile$',views.set_profile),
 	url(r'^set_student_profile$',views.set_student_profile),
 	url(r'^profile/t_list',views.t_list),
@@ -48,7 +50,10 @@ urlpatterns = [
 	url(r'^student_profile/createPost/createPostProcess',views.createPostProcess ),
 	url(r'^stocks/$',views.TeachersList.as_view()),
 	url(r'^rest_students/$',views.StudentsList.as_view()),
-	
+	url(r'^student_profile/budget_study/$',views.project_list),
+	url(r'^teachme/add$',views.ProjectCreateView.as_view(), name='add'),
+	url(r'^<slug:project_slug>/', views.project_detail, name='detail'),
+	url(r'^ teachme/(.*)/$', views.project_detail, name='detail'),
 	
 	
 	

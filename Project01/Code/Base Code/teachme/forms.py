@@ -74,3 +74,22 @@ class CreatePost(forms.ModelForm):
 		fields=['Spost','SofferdMoney','Ssubject']
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+class ExpenseForm(forms.Form):
+    title = forms.CharField()
+    amount = forms.IntegerField()
+    category = forms.CharField()
+
+
+

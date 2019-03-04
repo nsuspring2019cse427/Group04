@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.utils.text import slugify
 from django.db import models
 from django.utils import timezone
 
@@ -65,40 +65,32 @@ class StudentPost(models.Model):
 		
 		
 	def __str__(self):
-		return self.Spost[:50]
-		
-	
+		return self.Spost[:150]
 
 
-	
-	
-	
+
+
 
 class Project(models.Model):
-	name = models.CharField(max_length=100)
-	slug = models.SlugField(max_length=100, unique=True, blank=True)
-	budget = models.IntegerField()
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    budget = models.IntegerField()
 
-	def save(self, *args, **kwargs):
-		self.slug = slugify(self.name)
-		super(Project, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Project, self).save(*args, **kwargs)
 
-	@property
-	def budget_left(self):
-		expense_list = Expense.objects.filter(project=self)
-		total_expense_amount = 0
-		for expense in expense_list:
-			total_expense_amount += expense.amount
+    @property
+    def budget_left(self):
+        expense_list = Expense.objects.filter(project=self)
+        total_expense_amount = 0
+        for expense in expense_list:
+            total_expense_amount += expense.amount
 
-		# temporary solution, because the form currently only allows integer amounts
-		total_expense_amount = int(total_expense_amount)
+        # temporary solution, because the form currently only allows integer amounts
+        total_expense_amount = int(total_expense_amount)
 
-		return self.budget - total_expense_amount
-
-
-
-
-
+        return self.budget - total_expense_amount
 
     @property
     def total_transactions(self):
@@ -123,5 +115,13 @@ class Expense(models.Model):
     class Meta:
         ordering = ('-amount',)
 
+		
+	
+
+
+	
+	
+	
+	
 	
 	

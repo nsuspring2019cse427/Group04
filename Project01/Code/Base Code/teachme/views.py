@@ -1,11 +1,12 @@
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect , get_object_or_404 
 from django.contrib.auth import login
 from django.contrib.auth import logout as django_logout
 from .models import teachers
 from .models import students
+from .models import Project , Category , Expense
 from .models import  StudentPost
 from django import forms
 from .forms import NameForm ,  CreatePost , Search ,SsForm
@@ -14,7 +15,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import TeachersSerializer , StudentsSerializer
 import random
-
+from django.views.generic import CreateView
+from django.utils.text import slugify
+from .forms import ExpenseForm
+import json
 
 
 #this is tha main home page indedex
@@ -237,8 +241,8 @@ def student_singupprocess(request):
 			print("form is valid")
 			students.objects.create(Sname=request.user.username,Ssubject=form.cleaned_data['Ssubject'],Sarea=form.cleaned_data['Sarea'],Smedium=form.cleaned_data['Smedium'],Sgender=form.cleaned_data['Sgender'],Scontact=form.cleaned_data['Scontact'], Smoney=form.cleaned_data['Smoney'])
 			 
-			#return redirect('index')
-			return HttpResponse("worked fine")
+			return redirect('/teachme/student_profile')
+			
 
 	# if a GET 
 	else:
@@ -292,7 +296,10 @@ def studentPostList(request):   #lists of students post
 
 
 
+def back_profile(request):
 
+
+	return redirect('/teachme/profile')
 
 
 
@@ -317,7 +324,7 @@ def createPostProcess(request):
 		# check whether it's valid:
 		if form.is_valid():
 			StudentPost.objects.create(Spost=form.cleaned_data['Spost'], SpostedBy=request.user.username, SofferdMoney = form.cleaned_data["SofferdMoney"], Ssubject=form.cleaned_data["Ssubject"])
-			return redirect('index')
+			return redirect('/teachme/student_profile')
 
 	# if a GET 
 	else:
@@ -370,6 +377,34 @@ class StudentsList(APIView):
 
 
 
+def project_list(request):
+	
+
+	project_list = Project.objects.all()
+	return render(request, 'budget_study.html',{'project_list':project_list})
+
+
+
+
+
+
+
+class ProjectCreateView(CreateView):
+    model = Project
+    template_name = 'add-project.html'
+    fields = ('name', 'budget')
+
+    def form_valid(self, form):
+        self.object = form.save()
+
+        categories = self.request.POST.get('categoriesString').split(',')
+        for category in categories:
+            Category.objects.create(
+                project=Project.objects.get(id=self.object.id),
+                name=category
+            )
+
+        return HttpResponse("saved sucessfully")
 
 
 
@@ -381,7 +416,37 @@ class StudentsList(APIView):
 
 
 
+def project_detail(request, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
 
+    if request.method == 'GET':
+        category_list = Category.objects.filter(project=project)
+        return render(request, 'project-detail.html', {'project': project, 'expense_list': project.expenses.all(), 'category_list': category_list})
 
+    elif request.method == 'POST':
+        form = ExpenseForm(request.POST)
+
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            amount = form.cleaned_data['amount']
+            category_name = form.cleaned_data['category']
+
+            category = get_object_or_404(Category, project=project, name=category_name)
+
+            Expense.objects.create(
+                project=project,
+                title=title,
+                amount=amount,
+                category=category
+            )
+
+    elif request.method == 'DELETE':
+        id = json.loads(request.body)['id']
+        expense = Expense.objects.get(id=id)
+        expense.delete()
+
+        return HttpResponse(status=204)
+
+    return redirect(project)
 
 
