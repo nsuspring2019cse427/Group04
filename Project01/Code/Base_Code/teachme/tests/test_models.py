@@ -1,5 +1,5 @@
 from django.test import TestCase
-from budget.models import Project, Category, Expense
+from teachme.models import Project, Category, Expense
 
 
 
@@ -22,22 +22,22 @@ class TestModels(TestCase):
         )
         Expense.objects.create(
             project = self.project1,
-            tittle='expense1',
+            title='expense1',
             amount = 1000,
             category= category1
         )
 
         Expense.objects.create(
             project = self.project1,
-            tittle='expense2',
+            title='expense2',
             amount = 2000,
             category= category1
         )
 
-        self.assertEquals(self.priject1.budget_left,7000)
+        self.assertEquals(self.project1.budget_left,7000)
 
     def test_project_total_transaction(self):
-        project2 = Project.objects.ceate(
+        project2 = Project.objects.create(
             name='project2',
             budget= 10000
         )
@@ -47,15 +47,15 @@ class TestModels(TestCase):
 
         )
         Expense.objects.create(
-            project = self.project,
-            tittle='expense1',
+            project = self.project1,
+            title='expense1',
             amount = 1000,
-            category= category1
+            category= category1 
         )
 
         Expense.objects.create(
             project = project2,
-            tittle='expense2',
+            title='expense2',
             amount = 2000,
             category= category1
         )
