@@ -450,3 +450,9 @@ def project_detail(request, project_slug):
     return redirect(project)
 
 
+def add(x ,y):
+	return x+y
+
+
+
+

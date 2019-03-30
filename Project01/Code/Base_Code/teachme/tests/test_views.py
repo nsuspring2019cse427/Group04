@@ -20,21 +20,79 @@ class TestViews(TestCase):
 
 
 
+
+
+		
+
+
 	def test_project_list_GET(self):
 
 
+		right_Status_code = 200
+		false_status_code = 000
+		error_code = 404
+
 		response = self.client.get(self.list_url)
 
-		self.assertEquals(response.status_code,200)
+		self.assertEquals(response.status_code,right_Status_code)
+		self.assertNotEquals(response.status_code , false_status_code)
 		self.assertTemplateUsed(response, 'budget_study.html')
 
-	def testProject_details_get(self):
+
+
+
+
+	def test_project_using_false_urls(self):
+
+
+		right_Status_code = 200
+		false_status_code = 000
+		error_code = 404
+
+		response = self.client.get("something/False")
+
+		
+		self.assertNotEquals(response.status_code , false_status_code)
+		self.assertEquals(response.status_code , error_code)
+
+
+
+
+
+
+
+
+
+	def test_Project_details_get(self):
+
+
+		right_Status_code = 200
+		false_status_code = 000
+		error_code = 404
 
 
 		response = self.client.get(self.detail_url)
 
-		self.assertEquals(response.status_code,200)
+		self.assertEquals(response.status_code,right_Status_code)
 		self.assertTemplateUsed(response, 'project-detail.html')
+		self.assertNotEquals(response.status_code , false_status_code)
+		self.assertNotEquals(response.status_code , error_code)
+
+
+
+
+	def test_false_details_url(self):
+		right_Status_code = 200
+		false_status_code = 000
+		error_code = 404
+		
+
+
+		response = self.client.get("falseDtails/url")
+		self.assertNotEquals(response.status_code , false_status_code)
+		self.assertEquals(response.status_code , error_code)
+
+
 
 
 
@@ -121,6 +179,14 @@ class TestViews(TestCase):
 		second_category = Category.objects.get(id=2)
 		self.assertEqual(second_category.project , project2)
 		self.assertEqual(second_category.name, 'development')
+
+
+
+
+
+
+
+
 
 
 

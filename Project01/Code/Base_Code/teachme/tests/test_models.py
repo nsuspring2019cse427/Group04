@@ -60,4 +60,4 @@ class TestModels(TestCase):
             category= category1
         )
 
-        self.assertEquals(self.project1.total_transactions,1)
+        self.assertEquals(self.project1.total_transactions,1) 
