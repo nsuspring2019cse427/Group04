@@ -1,0 +1,100 @@
+
+		
+		
+		<script language="javascript">
+		 var today = new Date();
+		 document.write(today);
+		 </script>
+	
+
+
+
+
+
+{% load static from staticfiles %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach-Me</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/readable/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}"> 
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="#" style="font-size:30PX;font-family:Aclonica, sans-serif;">Teach Me &nbsp;<i class="glyphicon glyphicon-pencil" style="font-size:40PX;"></i></a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" role="presentation"><a href="#" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Home</a></li>
+                    <li role="presentation"><a href="signin" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Teaher Sign In</a></li>
+                     <li role="presentation"><a href="student_signin" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Student Sign In</a></li>
+                    <li role="presentation"><a href="logout" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Log out</a></li>
+                    <li role="presentation"><a href="#" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Contact Us</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div id="promo" style="background-image:url(&quot;static/img/1e6ec765c17620c82a0db4c9a7abdab8.jpg&quot;);">
+        <div class="jumbotron" style="background-color:rgba(255,255,255,0.66);">
+            
+             <h1>what you want to do </h1>
+             <h2><li class="active" role="presentation"><a href="t_list" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Teachers List</a></li></h2>
+             
+             <h2><li class="active" role="presentation"><a href="createPost" style="background-color:#f4ed7c;font-family:Allerta, sans-serif;">Post</a></li></h2>
+             
+            
+           
+        </div>
+    </div>
+    
+    
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 footer-navigation">
+                    <h3><a href="#">Teach Me</a></h3>
+                    <p class="links"><a href="#">Fast</a><strong> · </strong><a href="#">Pricing </a><strong> · </strong><a href="#">Secure</a><strong> </strong></p>
+                    <p class="company-name">Lubaba Bazlul © 182</p>
+                </div>
+                <div class="col-md-4 col-sm-6 footer-contacts">
+                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p><span class="new-line-span">CSE327.2</span>ECE, NSU</p>
+                    </div>
+                    <div><i class="fa fa-phone footer-contacts-icon"></i>
+                        <p class="footer-center-info email text-left">1611430042</p>
+                    </div>
+                    <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="#" target="_blank">support@company.com</a></p>
+                    </div>
+                </div>
+                <div class="clearfix visible-sm-block"></div>
+                <div class="col-md-4 footer-about">
+                    <h4>About the company</h4>
+                    <p>We are here to provide you awesome teacher and if you are looking for some extra money to meet the month's end need then here is the place to register!&nbsp;</p>
+                    <div class="social-links social-icons"><a href="#"><i class="fa fa-github"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox-plus-jquery.min.js"></script>
+</body>
+
+</html>

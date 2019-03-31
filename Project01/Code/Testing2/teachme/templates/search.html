@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Search for</title>
+	</head>
+	<h1>Enter your Teacher name</h1>
+	<body>
+	<form   action="searchprocess"   method="POST">{% csrf_token %}
+	<input type="text" name="Tname" placeholder="teachers name" class="w3-input w3-border">
+	<br>
+
+		<br>
+			
+	<button class="w3-btn w3-green">search</button>
+	</form>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Set Profile</title>
+    </head>
+    <h1>Enter your Student details</h1>
+    <h2> do you agree giving your infromation </h2>
+    <body>
+    <form  class="SsForm" action="student_singupprocess"   method="POST">{% csrf_token %}
+    {{form.as_p}}           
+    <button class="w3-btn w3-green">agree</button>
+    </form>
+    </body>
+</html>
+

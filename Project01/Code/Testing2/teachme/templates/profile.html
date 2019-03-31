@@ -1,0 +1,27 @@
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  
+  
+  <h3>Teachers name: {{teachers.Tname}}</h3>
+  <h3>teachers ID: {{teachers.Tid}}</h3>
+  <h3>teachers Area: {{teachers.Tarea1}}</h3>
+  <h3>teachers Contact: {{teachers.Tcontact}}</h3>
+  <h3>teachers Area2: {{teachers.Tarea2}}</h3>
+  <h3>teachers Gender: {{teachers.Tgender}}</h3>
+  <h3>teachers Medium: {{teachers.Tmedium}}</h3>
+
+  
+  
+  <p><a href="logout">logout</a></p>
+  <p><a href="t_list">teachers list</a></p>
+  <p><a href="studentPostList">posts</a></p>
+
+  
+  
+{% else %}
+  <p>You are not logged in</p>
+  <a href="">login</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Set Profile</title>
+	</head>
+	<h1>Enter your details</h1>
+	<body>
+	<form  class="CreatePost" action="createPostProcess"   method="POST">{% csrf_token %}
+	<h2>{{form.as_p}}</h2>
+			
+	<button class="w3-btn w3-green">Action</button>
+	</form>
+	</body>
+</html>
