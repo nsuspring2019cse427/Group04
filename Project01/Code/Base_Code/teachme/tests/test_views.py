@@ -126,15 +126,8 @@ class TestViews(TestCase):
 		error_code = 404
 		right_title = "expense1"
 
-
-
-
-
-
 		self.assertEquals(response.status_code , right_Status_code)
 		self.assertNotEquals(response.status_code , false_status_code)
-		
-
 		self.assertEquals(self.project1.expenses.first().title , right_title)
 
 
@@ -142,6 +135,11 @@ class TestViews(TestCase):
 
 	def test_project_detail_POST_adds_Wrong_expense_will_result_error(self):
 
+		
+		actual_money = 1000011
+		actual_title = 'expense1'
+		actual_category = 'development'
+		
 		Category.objects.create(
 			project=self.project1 ,
 			name = 'development'
@@ -150,9 +148,9 @@ class TestViews(TestCase):
 
 		response = self.client.post(self.detail_url , {
 
-			'title' : 'expense1' ,
-			'amount' : 10000 ,
-			'category' : 'development'
+			'title' : actual_title ,
+			'amount' : actual_money ,
+			'category' : actual_category
 		})
 
 
@@ -160,6 +158,9 @@ class TestViews(TestCase):
 		false_status_code = 000
 		error_code = 404
 		right_title = "expense1"
+		right_amount = actual_money
+		wrong_amount = 12122
+		
 
 
 
@@ -167,8 +168,26 @@ class TestViews(TestCase):
 
 
 		self.assertEquals(response.status_code , right_Status_code)
-		
 		self.assertEquals(self.project1.expenses.first().title , right_title)
+		self.assertEqual(self.project1.expenses.first().amount, right_amount )
+		self.assertTrue(self.project1.expenses.first().amount, right_amount)
+		
+		
+		
+		
+		
+		
+		
+		
+	
+
+
+
+
+
+
+
+
 
 
 
