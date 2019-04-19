@@ -136,7 +136,7 @@ class TestViews(TestCase):
 	def test_project_detail_POST_adds_Wrong_expense_will_result_error(self):
 
 		
-		actual_money = 1000011
+		actual_money = 1999
 		actual_title = 'expense1'
 		actual_category = 'development'
 		
@@ -171,7 +171,16 @@ class TestViews(TestCase):
 		self.assertEquals(self.project1.expenses.first().title , right_title)
 		self.assertEqual(self.project1.expenses.first().amount, right_amount )
 		self.assertTrue(self.project1.expenses.first().amount, right_amount)
+
+
 		
+
+
+
+
+		self.assertEquals(response.status_code , right_Status_code)
+
+		print(self.project1.expenses.first().amount)
 		
 		
 		
