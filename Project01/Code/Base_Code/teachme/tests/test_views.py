@@ -264,7 +264,29 @@ class TestViews(TestCase):
 
 
 
+class testIntegrations(TestCase):
 
+    def test_home_page_status_code(self):
+        response = self.client.get('/teachme/')
+        self.assertEquals(response.status_code, 200)
+
+
+    def test_home_to_signup(self):
+    	response = self.client.get('/teachme/signin/')
+    	self.assertEquals(response.status_code, 200)
+
+   
+
+    
+
+    def test_home_page_contains_correct_html(self):
+        response = self.client.get('/teachme/')
+        self.assertContains(response, '<h1>শিক্ষক দিচ্ছি-নিচ্ছি!</h1>')
+
+    def test_home_page_does_not_contain_incorrect_html(self):
+        response = self.client.get('/teachme/')
+        self.assertNotContains(
+            response, 'Hi there! I should not be on the page.')
 
 
 

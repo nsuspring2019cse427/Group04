@@ -1,5 +1,5 @@
 from selenium import webdriver
-from budget.models import Project
+from teachme.models import Project
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
 import time
