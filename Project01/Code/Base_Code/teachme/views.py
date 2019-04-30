@@ -454,10 +454,28 @@ def add(x ,y):
 	return x+y
 
 
-def area_wise_money(rank , money , area):
+def area_wise_money(rank , money , area , rp):
 
 	if(money<1000):
 		return 1
+	elif(money>2000):
+		if(area=="insideDhaka"):
+			if(rp>3):
+				return rank+1
+
+				
+
+		elif(area == "outsideDhaka"):
+			return 2
+
+
+	elif(area=="Dhanmondi"):
+		if(money>4000):
+			return 4
+	elif(area=="Gulshan"):
+		if(money>5000):
+			return 7
+
 
 	
 
