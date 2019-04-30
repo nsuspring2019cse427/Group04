@@ -289,6 +289,49 @@ class testIntegrations(TestCase):
 
    
 
+    def test_home_to_teacher_signin(self):
+    	response = self.client.get('/teachme/signin/')
+ 		self.assertEquals(response.status_code, 200)
+
+
+ 	def test_home_to_student_signin(self):
+
+		response = self.client.get('/teachme/student_signin/')
+ 		self.assertEquals(response.status_code, 200)
+
+ 	def test_teacherLogIn_to_TeacherProfile(self):
+ 		response = self.client.get('/teachme/profile/')
+ 		self.assertEquals(response.status_code, 200)
+
+ 	def test_TeacherProfile_to_tlist(self):
+ 		response = self.client.get('/teachme/profile/t_list')
+ 		self.assertEquals(response.status_code, 200)
+
+
+	def test_TeacherProfile_to_post(self):
+ 		response = self.client.get('/teachme/profile/studentPostList/')
+ 		self.assertEquals(response.status_code, 200)
+
+ 	def test_teacherProfile_to_logOut(self):
+ 		response = self.client.get('/teachme/profile/logout/')
+ 		self.assertEquals(response.status_code, 404)
+
+ 	def studentSignIn_to_studentProfile(self):
+ 		response = self.client.get('/teachme/student_profile/')
+ 		self.assertEquals(response.status_code, 200)
+
+ 	def test_student_profile_to_tlist(self):
+ 		response = self.client.get('/teachme/student_profile/t_list/')
+ 		self.assertEquals(response.status_code, 200)
+
+ 	def test_student_profile_to_createPost(self):
+ 		response = self.client.get('/teachme/student_profile/createPost/')
+ 		self.assertEquals(response.status_code, 200)
+
+ 	def test_student_profile_to_budget(self):
+ 		response = self.client.get('/teachme/student_profile/budget_study/')
+ 		self.assertEquals(response.status_code, 200)
+
     
 
     def test_home_page_contains_correct_html(self):
@@ -298,7 +341,7 @@ class testIntegrations(TestCase):
     def test_home_page_does_not_contain_incorrect_html(self):
         response = self.client.get('/teachme/')
         self.assertNotContains(
-            response, 'Hi there! I should not be on the page.')
+            response, 'Hi there! You should not be on the page.')
 
 
 
