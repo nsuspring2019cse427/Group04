@@ -454,5 +454,12 @@ def add(x ,y):
 	return x+y
 
 
+def area_wise_money(rank , money , area):
+
+	if(money<1000):
+		return 1
+
+	
+
 
 

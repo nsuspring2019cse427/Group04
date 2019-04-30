@@ -4,7 +4,8 @@ from django.test import TestCase , Client
 from django.urls import reverse
 from teachme.models import Project , Category ,  Expense
 import json
-
+from teachme.views import add , area_wise_money
+import unittest
 
 
 
@@ -263,6 +264,17 @@ class TestViews(TestCase):
 
 
 
+class test_add(TestCase):
+
+	def testg(self):
+		
+		self.assertEquals(area_wise_money(4,10000,"dhaka"), 1)
+
+
+
+
+
+
 
 class testIntegrations(TestCase):
 
@@ -287,6 +299,10 @@ class testIntegrations(TestCase):
         response = self.client.get('/teachme/')
         self.assertNotContains(
             response, 'Hi there! I should not be on the page.')
+
+
+
+
 
 
 
